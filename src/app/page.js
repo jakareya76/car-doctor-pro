@@ -1,3 +1,11 @@
+import HomePage from "@/components/HomePage/HomePage";
+
 export default function Home() {
-  return <h2>Hello World</h2>;
+  return (
+    <>
+      <HomePage />
+    </>
+  );
 }
+
+// mongodb+srv://jakareya1306:7OGxDBuqquLegQBj@cluster0.yuavsug.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

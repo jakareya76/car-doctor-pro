@@ -6,7 +6,32 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FF3811",
+        secondary: "#737373",
+      },
+    },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#FF3811",
+          secondary: "#737373",
+
+          ".btn-primary": {
+            color: "#fff",
+          },
+
+          ".btn-outline.btn-primary:hover": {
+            color: "#fff",
+          },
+        },
+      },
+      "dark",
+      "light",
+    ],
+  },
 };

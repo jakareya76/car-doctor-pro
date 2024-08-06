@@ -5,7 +5,9 @@ const Heading = ({ title, heading, text }) => {
       <h1 className="text-4xl text-black font-bold leading-relaxed">
         {heading}
       </h1>
-      <p className="text-gray-500 max-w-xl mx-auto">{text}</p>
+      <p className="text-gray-500 max-w-xl mx-auto text-sm md:text-[16px]">
+        {text}
+      </p>
     </div>
   );
 };

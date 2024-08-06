@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <div className="text-white">
-      <div className="carousel w-full mt-4">
+      <div className="carousel flex w-full mt-4">
         {banners.map((banner, index) => (
           <div
             style={{
@@ -11,11 +11,13 @@ const Banner = () => {
             }}
             key={index}
             id={`slide${index + 1}`}
-            className="carousel-item relative w-full bg-top bg-no-repeat bg-cover h-[85vh] rounded-xl"
+            className="carousel-item relative w-full bg-top bg-no-repeat bg-cover py-40 rounded-xl"
           >
-            <div className="h-full w-full flex items-center pl-36">
+            <div className="h-full  w-full flex justify-center md:justify-start items-center md:pl-36">
               <div className="space-y-6">
-                <h1 className="text-6xl max-w-sm font-bold">{banner.title}</h1>
+                <h1 className="md:text-6xl text-4xl  max-w-sm font-bold">
+                  {banner.title}
+                </h1>
                 <p className="max-w-md">{banner.text}</p>
                 <button className="btn btn-primary mr-4">Discover More</button>
                 <button className="btn btn-outline text-white">

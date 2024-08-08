@@ -18,7 +18,7 @@ const LoginPage = () => {
             src="/assets/images/login/login.svg"
             width={500}
             height={600}
-            className="w-full"
+            alt="login-image"
           />
         </div>
         <div className="sm:p-5 pt-2 sm:pt-0 w-full border rounded-xl">
@@ -26,7 +26,7 @@ const LoginPage = () => {
             Login
           </h2>
           <div className="card w-full -mt-8 shrink-0">
-            <form onClick={handleLogin} className="card-body w-full">
+            <form onSubmit={handleLogin} className="card-body w-full">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

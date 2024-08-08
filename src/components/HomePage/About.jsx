@@ -9,12 +9,14 @@ const About = () => {
             src="/assets/images/about_us/person.jpg"
             width={500}
             height={550}
+            alt="about-image-1"
             className="top-0 left-0 rounded-xl w-full"
           />
           <Image
             src="/assets/images/about_us/parts.jpg"
             width={300}
             height={350}
+            alt="about-image-2"
             className="w-full mt-4 md:mt-0 rounded-xl  md:absolute -bottom-10 -right-16 md:border-[10px] md:w-[280px] lg:w-[350px] border-white"
           />
         </div>

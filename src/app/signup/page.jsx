@@ -1,13 +1,25 @@
 "use client";
+
 import SocialLogin from "@/components/Shared/SocialLogin";
 import Image from "next/image";
 import Link from "next/link";
 
 const SignUpPage = () => {
-  const handleSignUp = (e) => {
-    e.preventDefault();
+  const handleSignUp = async (event) => {
+    event.preventDefault();
 
-    console.log(e.target);
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const newUser = {
+      name,
+      email,
+      password,
+    };
+
+    console.log(newUser);
   };
 
   return (
@@ -18,7 +30,7 @@ const SignUpPage = () => {
             src="/assets/images/login/login.svg"
             width={500}
             height={600}
-            className=""
+            alt="login-image"
           />
         </div>
         <div className="sm:p-5 pt-2 sm:pt-0 border w-full rounded-xl">
@@ -26,7 +38,7 @@ const SignUpPage = () => {
             Sign Up
           </h2>
           <div className="card -mt-8 shrink-0">
-            <form onClick={handleSignUp} className="card-body">
+            <form onSubmit={handleSignUp} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>

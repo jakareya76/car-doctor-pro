@@ -5,7 +5,12 @@ const Footer = () => {
     <footer className="bg-[#151515] text-white p-10">
       <div className="footer container mx-auto">
         <aside>
-          <Image src="/assets/logo.svg" width={80} height={80} />
+          <Image
+            src="/assets/logo.svg"
+            width={80}
+            height={80}
+            alt="footer-logo"
+          />
           <p className="max-w-xs">
             Edwin Diaz is a software and web technologies engineer, a life coach
             trainer who is also a serial.

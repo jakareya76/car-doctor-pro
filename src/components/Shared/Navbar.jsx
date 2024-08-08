@@ -79,6 +79,9 @@ const Navbar = () => {
           <CiShoppingCart size={25} className="cursor-pointer" />
           <CiSearch size={25} className="cursor-pointer" />
           <button className="btn btn-primary btn-outline">Appointment</button>
+          <Link href="/login" className="btn btn-primary">
+            Login
+          </Link>
         </div>
       </div>
     </div>

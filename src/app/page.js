@@ -7,5 +7,3 @@ export default function Home() {
     </>
   );
 }
-
-// mongodb+srv://jakareya1306:7OGxDBuqquLegQBj@cluster0.yuavsug.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

@@ -15,7 +15,7 @@ const About = () => {
             src="/assets/images/about_us/parts.jpg"
             width={300}
             height={350}
-            className="absolute -bottom-10 -right-16 w-[250px] border-[10px] md:w-[280px] lg:w-[450px] border-white"
+            className="w-full mt-4 md:mt-0 rounded-xl  md:absolute -bottom-10 -right-16 md:border-[10px] md:w-[280px] lg:w-[350px] border-white"
           />
         </div>
         <div className="w-full md:w-1/2">

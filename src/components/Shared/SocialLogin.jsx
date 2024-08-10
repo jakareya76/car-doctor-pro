@@ -1,11 +1,29 @@
+"use client";
+
 import { FcGoogle } from "react-icons/fc";
 import { ImFacebook } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const SocialLogin = () => {
+  const router = useRouter();
+  const session = useSession();
+
+  const handleSocialLogin = (provider) => {
+    signIn(provider);
+  };
+
+  if (session.status === "authenticated") {
+    router.push("/");
+  }
+
   return (
     <div className="flex my-4 items-center justify-around">
-      <div className="bg-gray-100 p-3 rounded-full cursor-pointer">
+      <div
+        onClick={() => handleSocialLogin("google")}
+        className="bg-gray-100 p-3 rounded-full cursor-pointer"
+      >
         <FcGoogle size={25} />
       </div>
       <div className="bg-gray-100 p-3 rounded-full cursor-pointer">

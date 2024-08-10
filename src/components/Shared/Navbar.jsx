@@ -65,12 +65,17 @@ const Navbar = () => {
           <CiShoppingCart size={25} className="cursor-pointer" />
           <CiSearch size={25} className="cursor-pointer" />
           <button className="btn btn-primary btn-outline">Appointment</button>
+          {session.status === "loading" && (
+            <span className="loading loading-dots loading-md"></span>
+          )}
 
-          {!session.data ? (
+          {session.status === "unauthenticated" && (
             <Link href="/login" className="btn btn-primary">
               Login
             </Link>
-          ) : (
+          )}
+
+          {session.status === "authenticated" && (
             <button onClick={() => signOut()} className="btn btn-primary">
               Logout
             </button>

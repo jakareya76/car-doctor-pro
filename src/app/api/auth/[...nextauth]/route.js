@@ -50,9 +50,34 @@ const handler = NextAuth({
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
   ],
-  callbacks: {},
   pages: {
     signIn: "/login",
+  },
+  callbacks: {
+    async signIn({ user, account }) {
+      if (account.provider === "google") {
+        const { name, email, image } = user;
+
+        try {
+          const db = await connectDB();
+
+          const userCollection = db.collection("users");
+
+          const userExist = await userCollection.findOne({ email });
+
+          if (!userExist) {
+            const res = await userCollection.insertOne(user);
+            return user;
+          } else {
+            return user;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        return user;
+      }
+    },
   },
 });
 

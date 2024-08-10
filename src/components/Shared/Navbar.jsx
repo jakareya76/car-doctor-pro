@@ -1,30 +1,11 @@
+"use client";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
-  const navItems = [
-    {
-      title: "Home",
-      path: "/",
-    },
-    {
-      title: "About",
-      path: "/about",
-    },
-    {
-      title: "Services",
-      path: "/services",
-    },
-    {
-      title: "Blog",
-      path: "/blog",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
-  ];
+  const session = useSession();
 
   return (
     <div className="navbar bg-base-100 mt-5 text-black container mx-auto">
@@ -84,13 +65,43 @@ const Navbar = () => {
           <CiShoppingCart size={25} className="cursor-pointer" />
           <CiSearch size={25} className="cursor-pointer" />
           <button className="btn btn-primary btn-outline">Appointment</button>
-          <Link href="/login" className="btn btn-primary">
-            Login
-          </Link>
+
+          {!session.data ? (
+            <Link href="/login" className="btn btn-primary">
+              Login
+            </Link>
+          ) : (
+            <button onClick={() => signOut()} className="btn btn-primary">
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </div>
   );
 };
+
+const navItems = [
+  {
+    title: "Home",
+    path: "/",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Services",
+    path: "/services",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
 
 export default Navbar;

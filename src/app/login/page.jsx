@@ -2,12 +2,28 @@
 import SocialLogin from "@/components/Shared/SocialLogin";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log(e.target);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (res.status === 200) {
+      router.push("/");
+    }
   };
 
   return (

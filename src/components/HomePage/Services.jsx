@@ -1,8 +1,22 @@
+"use client";
+
 import Heading from "../Shared/Heading";
-import { services } from "../../temp/services";
 import ServiceCard from "../Cards/ServiceCard";
+import { useEffect, useState } from "react";
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    const getServicesData = async () => {
+      const res = await fetch("http://localhost:3000/services/api/get-all");
+      const data = await res.json();
+      setServices(data.services);
+    };
+
+    getServicesData();
+  }, []);
+
   return (
     <div className="py-20">
       <Heading

@@ -13,7 +13,7 @@ const ServicePage = async ({ params }) => {
   return (
     <div className="w-11/12 mx-auto my-10">
       <div>
-        <div className="relative  h-80">
+        <div className="relative h-80">
           <Image
             className="absolute h-80 w-full left-0 top-0 object-cover"
             src={img}

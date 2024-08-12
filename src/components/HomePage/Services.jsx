@@ -1,21 +1,14 @@
-"use client";
-
 import Heading from "../Shared/Heading";
 import ServiceCard from "../Cards/ServiceCard";
-import { useEffect, useState } from "react";
 
-const Services = () => {
-  const [services, setServices] = useState([]);
+const getServicesData = async () => {
+  const res = await fetch("http://localhost:3000/services/api/get-all");
+  const data = await res.json();
+  return data;
+};
 
-  useEffect(() => {
-    const getServicesData = async () => {
-      const res = await fetch("http://localhost:3000/services/api/get-all");
-      const data = await res.json();
-      setServices(data.services);
-    };
-
-    getServicesData();
-  }, []);
+const Services = async () => {
+  const { services } = await getServicesData();
 
   return (
     <div className="py-20">
@@ -27,9 +20,10 @@ const Services = () => {
       />
       <div className="flex items-center justify-center mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => {
-            return <ServiceCard key={service._id} service={service} />;
-          })}
+          {services.length > 0 &&
+            services.map((service) => {
+              return <ServiceCard key={service._id} service={service} />;
+            })}
         </div>
       </div>
     </div>

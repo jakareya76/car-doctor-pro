@@ -1,11 +1,6 @@
 import Heading from "../Shared/Heading";
 import ServiceCard from "../Cards/ServiceCard";
-
-const getServicesData = async () => {
-  const res = await fetch("http://localhost:3000/services/api/get-all");
-  const data = await res.json();
-  return data;
-};
+import { getServicesData } from "@/services/getServices";
 
 const Services = async () => {
   const { services } = await getServicesData();

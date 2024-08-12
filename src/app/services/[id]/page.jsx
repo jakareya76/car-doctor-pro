@@ -2,6 +2,11 @@ import { getServicesDetails } from "@/services/getServices";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Service Details",
+  description: "Service Details Page",
+};
+
 const ServicePage = async ({ params }) => {
   const details = await getServicesDetails(params.id);
   const { _id, title, description, img, price, facility } = details.service;
